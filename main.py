@@ -8,15 +8,18 @@ melhor_caminho = []
 # no if da linha 22
 def CaminhadaDFS_v1(vertice, visitados, matrizADJ, caminho, peso):
 
+
 	if vertice not in caminho:
 		caminho.append(vertice)
-	#print("visitados[v] >> ", visitados[vertice], "\n ")
+
 	if ( visitados[vertice] ):
 		if (vertice == 0): #encontrou um caminho 
 			#print("Achou um caminho :: caminho",caminho, "\n")
-			if caminho not in melhor_caminho:
-				melhor_caminho.append( ( caminho.copy(), "peso:: " +str(peso) ) ) 
-			#	print("melhor caminho l18 >> ::: ", melhor_caminho, "\n")
+			temp = set(caminho.copy())
+			if len(temp) > 2:
+				#if caminho not in melhor_caminho:
+					melhor_caminho.append( ( caminho.copy(), "peso:: " + str(peso) ) ) 
+				#	print("melhor caminho l18 >> ::: ", melhor_caminho, "\n")
 		caminho = []
 		peso = 0
 		#print("melhor caminho aqui >> ", melhor_caminho, end="\n")
